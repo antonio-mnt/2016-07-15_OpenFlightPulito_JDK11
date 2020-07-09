@@ -35,7 +35,9 @@ public class FlightDAO {
 	}
 
 	public List<Route> getAllRoutes() {
-		String sql = "SELECT * FROM route";
+		String sql = "SELECT * " + 
+				"FROM route " + 
+				"GROUP BY Source_airport_ID, Destination_airport_ID";
 		List<Route> list = new ArrayList<>();
 		try {
 			Connection conn = DBConnect.getConnection();
